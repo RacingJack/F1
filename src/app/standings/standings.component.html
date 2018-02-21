@@ -1,0 +1,71 @@
+<!-- <div><label>'Limit:</label>'{{f1.MRData.limit}}</div> -->
+
+<!-- <select [(ngModel)]="SelectedCourse">
+        <option *ngFor="let Courses of AllCourses">{{Courses.course}}</option>
+    </select> -->
+
+<select [(ngModel)]="selectedYear" (change)="Filter($event.target.value)">
+        <option *ngFor="let year of yearDropdown">{{year.name}}</option>
+</select>
+<!-- <button (click)="testPopup()">Test popup</button> -->
+<button class="mdl-button mdl-js-button" (click)="driversConstructors()">{{driversConstructorsText}}</button>
+
+<!-- <select [(ngModel)]="selectedCountry.id">
+            <option *ngFor="let year of years" value= {{year.id}}>{{year.name}}</option>
+    </select> -->
+
+<!-- <img [src]="./images/American.png"/> -->
+
+<!-- <div *ngIf='year'> -->
+<table *ngIf='driversTable'>
+    <thead>
+        <tr>
+            <th colspan="4">Drivers Championship Standings {{year}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let driver of driversList">
+            <!-- <tr *ngFor="let driver of driversList" (click)=onSelect(driver.Driver)> -->
+            <td class="tdBold">{{driver.position}}</td>
+            <!-- <td><img src="./images/American.png"/></td> -->
+            <td class="noRightBorder"><img src="../../assets/images/driver/{{driver.Driver.nationality}}.png" /></td>
+            <!-- <td class="noLeftBorder"><a class="linkNoUnderline" [routerLink]="['/driver']">{{driver.Driver.givenName}} {{driver.Driver.familyName}}</a></td> -->
+            <!-- <td class="noLeftBorder">{{driver.Driver.givenName}} {{driver.Driver.familyName}}</td> -->
+            <!-- <td class="noLeftBorder"><a class="linkNoUnderline" [routerLink]="['/driver']">{{driver.Driver.givenName}} {{driver.Driver.familyName}}</a></td> -->
+            <td class="noLeftBorder cursorHand" (click)=onSelectDriver(driver.Driver)>{{driver.Driver.givenName}} {{driver.Driver.familyName}}</td>
+            <td>{{driver.Constructors[0].name}}</td>
+            <td class="tdBold">{{driver.points}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<table *ngIf='constructorsTable'>
+        <thead>
+            <tr>
+                <th colspan="4">Constructors Championship Standings {{year}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let constructor of constructorsList">
+                <td class="tdBold">{{constructor.position}}</td>
+                <td class="noRightBorder"><img src="../../assets/images/driver/{{constructor.Constructor.nationality}}.png" /></td>
+                <td class="noLeftBorder cursorHand" (click)=onSelectConstructor(constructor.Constructor)>{{constructor.Constructor.name}}</td>
+                <td class="tdBold">{{constructor.points}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+<!-- <div>
+        <nav class='navbar navbar-default'>
+                <div class='container-fluid'>
+                    <a class='navbar-brand'>Home Title</a>
+                    <ul class='nav navbar-nav'>
+                        <li><a [routerLink]="['/home']">Home button</a></li>
+                    </ul>
+                </div>
+            </nav> -->
+<!-- <div class='container'>
+            <router-outlet></router-outlet>
+        </div>
+    </div> -->
+<!-- </div> -->

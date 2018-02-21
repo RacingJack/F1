@@ -1,0 +1,20 @@
+<div class="main-content">
+    <table class="result-table">
+      <thead>
+        <tr><th colspan="4">Formula 1 {{year}} Results {{globDriver.givenName}} {{globDriver.familyName}}</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Round</td> <td colspan="2">Grand Prix</td> <td>Team</td> <td>Grid</td> <td>Race</td>
+        </tr>
+        <tr *ngFor="let race of races">
+          <td class="tdBold">{{race.round}}</td>
+          <td class="noRightBorder"><img src="../../assets/images/country/{{race.Circuit.Location.country}}.png" /></td>
+          <td class="noLeftBorder">{{race.raceName}}</td>
+          <td>{{race.Results[0].Constructor.name}}</td>
+          <td>{{race.Results[0].grid}}</td>
+          <td>{{race.Results[0].position}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
